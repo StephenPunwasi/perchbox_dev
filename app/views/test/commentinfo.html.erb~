@@ -1,0 +1,6 @@
+<p>Messages:<br/>
+	<% @comment.each do |c| %>
+		From: <a href="http://facebook.com/<%= c["from"]["id"] %>"><%= c["from"]["name"] %></a> <%= c["like_count"] %> likes<br/>
+		<%= c["message"] %><br />
+	<% end %>
+</p>

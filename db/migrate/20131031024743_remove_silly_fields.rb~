@@ -1,0 +1,4 @@
+class RemoveSillyFields < ActiveRecord::Migration
+  def change
+  end
+end

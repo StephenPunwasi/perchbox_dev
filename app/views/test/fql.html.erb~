@@ -1,0 +1,11 @@
+<h1>Test#fql</h1>
+<p>
+<p>Query:<br/>
+<%= @fqlquery %>
+	test:
+	<%= @fqlresult["data"].each do |test| %>
+		<li><%= test['status_id'] %></li>
+		<li><%= test['message'] %></li>
+		<li>Comments: <%= test['comment_info']['comment_count'] %> Likes: <%= test['like_info']['like_count'] %></li>
+		<% end %>
+</p>

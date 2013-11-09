@@ -1,0 +1,12 @@
+<% if @type == "comment" %>
+	<% @info.each do |f| %>
+		<%= link_to "#{f["from"]["name"]}", "http://facebook.com/#{f["from"]["id"]}" %>
+		<%= link_to "#{f['like_count']} likes", "/test/info?type=like&objectid=#{f['id']}" %><br />
+		<%= f['message'] %>
+	<% end %>
+<% else %>
+	<% @info.each do |f| %>
+	<a href="http://facebook.com/<%= f["id"] %>"><%= f["name"] %></a><br />
+	<% end %>
+<% end %>
+</p>

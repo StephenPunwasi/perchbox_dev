@@ -1,0 +1,7 @@
+<%= @auth["token"] %>
+<%= @auth["secret"] %>
+<br/>
+<br/>
+
+
+<%= @auth.to_yaml %>
