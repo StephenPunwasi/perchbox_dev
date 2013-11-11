@@ -20,8 +20,8 @@ test:
 
 production:
   adapter: postgresql
-  database: perchbox
+  database: dc1trijsfdc83
   pool: 5
   timeout: 5000
-  username: ikrougovoi@perchbox.com
-  password: p3rchb0x$
+  username: bzxdaqndpzdwha
+  password: 7_-84U1JHg-YEzSBmZP5DX-wvT
