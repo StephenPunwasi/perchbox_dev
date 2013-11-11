@@ -23,5 +23,3 @@ production:
   database: dc1trijsfdc83
   pool: 5
   timeout: 5000
-  username: bzxdaqndpzdwha
-  password: 7_-84U1JHg-YEzSBmZP5DX-wvT
