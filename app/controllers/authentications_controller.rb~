@@ -27,10 +27,14 @@ class AuthenticationsController < ApplicationController
   	auth = request.env['omniauth.auth']
   	@authorization = current_user.authentications.find_by_provider_and_uid(auth["provider"], auth["uid"])
 		if @authorization
-  		flash[:notice] = "Welcome back #{current_user.email}! You have already authorized #{auth['provider']}."
+  		flash[:notice] = "Welcome back! You have already authorized #{auth['provider']}."
   		redirect_to authentications_url
 		else
-  		current_user.authentications.create(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials'].token, :oauth_secret_token => auth['credentials'].secret)
+			if auth['provider'] = "facebook"
+  			current_user.authentications.create(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials'].token)
+  		else
+  			current_user.authentications.create(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials'].token, :oauth_secret => auth['credentials'].secret)
+  		end
 			flash[:notice] = "Authentication successful."
 			redirect_to authentications_url
 		end

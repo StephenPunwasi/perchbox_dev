@@ -1,3 +1,28 @@
-<div class="row" style="margin-top: 16px; width: 1000px;">
-	<%= @timeline %>
+<div class="secondaryContent">
+	<div class="row">
+		<div class="span4">
+			<div class="thumbnail">
+				<img src="<%= @profile[0]['profile_image_url'] %>" style="float: left; margin: 5px" />
+				<h4><%= @profile[0]["name"] %></h4>
+				<h4>@<%= @profile[0]["screen_name"] %></h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 16px; width: 1000px;">
+		<div class="span5">
+			<table class="table table-striped">
+				<tr>
+					<th>Tweets</th>
+				</tr>
+				<% @timeline.each do |status| %>
+				<tr>
+					<td>
+						<%= status.text %>
+					<td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
 </div>

@@ -1,11 +1,11 @@
 PerchboxDev::Application.routes.draw do
+  resources :authentications
+  devise_for :users
   get "test/facebook"
   get "test/info"
   get "test/twitter"
-  resources :authentications
   get "authentication/create"
   root "static_pages#home"
-  devise_for :users
   get '/auth/:provider/callback', :to => 'authentications#create'
 
   # The priority is based upon order of creation: first created -> highest priority.

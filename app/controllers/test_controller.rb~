@@ -1,6 +1,7 @@
 class TestController < ApplicationController
 	before_action :set_graph, only: [:facebook, :info]
 	before_action :set_twitter, only: [:twitter]
+	require 'twitter'
 	
   def facebook
   	@profile = @graph.get_object("me")
@@ -21,7 +22,8 @@ class TestController < ApplicationController
   end
   
   def twitter
-  	timeline = client.home_timeline
+  	@profile = @client.users(Integer(@curuserid))
+  	@timeline = @client.user_timeline
   end
   
   def callback
@@ -29,9 +31,8 @@ class TestController < ApplicationController
   end
   
   private
-  	require 'tweetstream'
   	def set_graph
-  		if current_user.authentications.exists?("facebook")
+  		if current_user.authentications.exists?(:provider => "facebook")
   			fbtoken = current_user.authentications.find_by_provider("facebook").token
   			@graph = Koala::Facebook::API.new(fbtoken)
   		else
@@ -39,11 +40,16 @@ class TestController < ApplicationController
   		end
   	end
   	def set_twitter
-  		@twtoken = current_user.authentications.find_by_provider("twitter").token
-  		@oauthsecret = current_user.authentications.find_by_provider("twitter").oauth_secret
-  		client = Twitter::Client.new(
-  			:oauth_token => @twtoken,
-  			:oauth_token_secret => @oauthsecret
-  		)
+  		if current_user.authentications.exists?(:provider => "twitter")
+				@twtoken = current_user.authentications.find_by_provider("twitter").token
+				@oauthsecret = current_user.authentications.find_by_provider("twitter").oauth_secret
+				@curuserid = current_user.authentications.find_by_provider("twitter").uid
+				@client = Twitter::Client.new(
+					:oauth_token => @twtoken,
+					:oauth_token_secret => @oauthsecret
+				)
+			else
+				redirect_to "/auth/twitter"
+  		end
   	end
 end

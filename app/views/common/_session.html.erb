@@ -28,6 +28,7 @@
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="pricing.html">Pricing</a></li> -->
             <% if user_signed_in? %>
+            <li><%= link_to 'Twitter', '/test/twitter' %>
             <li><%= link_to 'Facebook', '/test/facebook' %>
             <li><%= link_to 'Authentications', '/authentications' %>
             <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>

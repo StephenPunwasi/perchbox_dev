@@ -9,9 +9,8 @@
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<div id="secondaryContent">
-    <%= render 'common/session' %>
-</div>
+<%= render 'common/session' %>
+<br/>
 <div class="container">
 <%= yield %>
 </div>

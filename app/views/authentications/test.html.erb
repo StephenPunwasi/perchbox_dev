@@ -1,0 +1,13 @@
+<br />
+<br />
+<br />
+<br />
+
+<%= current_user.email %> <br/>
+
+<%= @auth['provider'].to_s %> <br/>
+<%= @auth['uid'].to_s %> <br/>
+<%= @auth['credentials'].token.to_s %> <br/>
+<%= @test =@auth['credentials'].secret.to_s || "fb" %><br/>
+<br />
+<%= @auth %>
