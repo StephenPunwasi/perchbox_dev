@@ -1,0 +1,4 @@
+class DropDb < ActiveRecord::Migration
+  def change
+  end
+end

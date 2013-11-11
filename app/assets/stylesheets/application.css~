@@ -5007,6 +5007,7 @@ a.thumbnail:focus {
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
+  color: black;
 }
 
 .alert h4 {
@@ -6819,6 +6820,6 @@ td.visible-print {
 }
 
 .secondaryContent{
-	margin-top: 15px;
-	padding: 15px;
+	padding: 50px;
+	padding-top: 20px;
 }
