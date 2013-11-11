@@ -23,14 +23,6 @@ ActiveRecord::Schema.define(version: 20131105041621) do
     t.string   "oauth_secret"
   end
 
-  create_table "authorizations", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
